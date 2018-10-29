@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token
   before_save :downcase_email #データベースに保存される直前にすべての文字列を小文字に変換する↓
   before_create :create_activation_digest #ユーザーオブジェクトが作成される直前にactivation_digestを作成する
